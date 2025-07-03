@@ -13,7 +13,7 @@ done < <(python get_paths.py)
 
 cd "$PROGRAM_PATH"ParticleTracking || { echo "Failed to change directory to PROGRAM_PATH: "$PROGRAM_PATH"ParticleTracking Please update config.py file with proper PROGRAM_PATH"; exit 1; }
 echo "Changed directory to $PROGRAM_PATH"
-# --- Now, use the shell variables ---
+
 date
 python particletracking.py cptmarvel 1 &
 python particletracking.py cptmarvel 2 &
