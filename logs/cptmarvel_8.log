@@ -87,3 +87,138 @@ Traceback (most recent call last):
   File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticleTracking/particletracking.py", line 29, in <module>
     print(f'Snap start: {snap_start}')
 OSError: [Errno 5] Input/output error
+07/08/2025 12:43:42 PM :: PartTracker :: DEBUG    :: --------------------------------------------------------------
+07/08/2025 12:43:42 PM :: PartTracker :: DEBUG    :: Beginning particle tracking for cptmarvel-8
+07/08/2025 12:43:42 PM :: PartTracker :: DEBUG    :: Getting stored filepaths and haloids
+07/08/2025 12:43:42 PM :: PartTracker :: DEBUG    :: Start on snapshot: 4096
+07/08/2025 12:43:42 PM :: base.py :: DEBUG    :: Found iords file at Data/iords/cptmarvel_8.pickle, loading these
+07/08/2025 12:43:42 PM :: base.py :: WARNING  :: If you have recently changed something, these iords might not be correct
+07/08/2025 12:43:42 PM :: base.py :: DEBUG    :: Starting tracking
+07/08/2025 12:43:47 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:43:48 PM :: base.py :: DEBUG    :: * Snapshot 4096
+07/08/2025 12:46:13 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:46:14 PM :: base.py :: DEBUG    :: * Snapshot 3968
+07/08/2025 12:48:24 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:48:25 PM :: base.py :: DEBUG    :: * Snapshot 3840
+07/08/2025 12:50:28 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:50:29 PM :: base.py :: DEBUG    :: * Snapshot 3712
+07/08/2025 12:52:40 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:52:41 PM :: base.py :: DEBUG    :: * Snapshot 3636
+07/08/2025 12:54:53 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:54:53 PM :: base.py :: DEBUG    :: * Snapshot 3584
+07/08/2025 12:56:53 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:56:54 PM :: base.py :: DEBUG    :: * Snapshot 3456
+07/08/2025 12:59:04 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 12:59:05 PM :: base.py :: DEBUG    :: * Snapshot 3328
+07/08/2025 01:00:50 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:00:51 PM :: base.py :: DEBUG    :: * Snapshot 3245
+07/08/2025 01:02:41 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:02:42 PM :: base.py :: DEBUG    :: * Snapshot 3200
+07/08/2025 01:04:41 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:04:41 PM :: base.py :: DEBUG    :: * Snapshot 3072
+07/08/2025 01:06:56 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:06:56 PM :: base.py :: DEBUG    :: * Snapshot 2944
+07/08/2025 01:08:44 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:08:45 PM :: base.py :: DEBUG    :: * Snapshot 2816
+07/08/2025 01:11:02 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:11:03 PM :: base.py :: DEBUG    :: * Snapshot 2688
+07/08/2025 01:13:42 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:13:42 PM :: base.py :: DEBUG    :: * Snapshot 2624
+07/08/2025 01:15:41 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:15:41 PM :: base.py :: DEBUG    :: * Snapshot 2560
+07/08/2025 01:17:32 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:17:33 PM :: base.py :: DEBUG    :: * Snapshot 2432
+07/08/2025 01:19:45 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:19:46 PM :: base.py :: DEBUG    :: * Snapshot 2304
+07/08/2025 01:21:36 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:21:36 PM :: base.py :: DEBUG    :: * Snapshot 2176
+07/08/2025 01:23:19 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:23:19 PM :: base.py :: DEBUG    :: * Snapshot 2162
+07/08/2025 01:25:03 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:25:04 PM :: base.py :: DEBUG    :: * Snapshot 2048
+07/08/2025 01:26:47 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:26:47 PM :: base.py :: DEBUG    :: * Snapshot 1920
+07/08/2025 01:28:28 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:28:29 PM :: base.py :: DEBUG    :: * Snapshot 1813
+07/08/2025 01:30:10 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:30:10 PM :: base.py :: DEBUG    :: * Snapshot 1792
+07/08/2025 01:31:54 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:31:54 PM :: base.py :: DEBUG    :: * Snapshot 1664
+07/08/2025 01:33:36 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:33:37 PM :: base.py :: DEBUG    :: * Snapshot 1543
+07/08/2025 01:35:19 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:35:19 PM :: base.py :: DEBUG    :: * Snapshot 1536
+07/08/2025 01:37:09 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:37:09 PM :: base.py :: DEBUG    :: * Snapshot 1408
+07/08/2025 01:38:51 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:38:52 PM :: base.py :: DEBUG    :: * Snapshot 1331
+07/08/2025 01:40:40 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:40:40 PM :: base.py :: DEBUG    :: * Snapshot 1280
+07/08/2025 01:42:49 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:42:50 PM :: base.py :: DEBUG    :: * Snapshot 1162
+07/08/2025 01:44:54 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:44:54 PM :: base.py :: DEBUG    :: * Snapshot 1152
+07/08/2025 01:46:40 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:46:40 PM :: base.py :: DEBUG    :: * Snapshot 0896
+07/08/2025 01:48:32 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:48:32 PM :: base.py :: DEBUG    :: * Snapshot 0818
+07/08/2025 01:51:01 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:51:02 PM :: base.py :: DEBUG    :: * Snapshot 0768
+07/08/2025 01:53:04 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:53:04 PM :: base.py :: DEBUG    :: * Snapshot 0672
+07/08/2025 01:54:52 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:54:53 PM :: base.py :: DEBUG    :: * Snapshot 0640
+07/08/2025 01:57:15 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:57:15 PM :: base.py :: DEBUG    :: * Snapshot 0512
+07/08/2025 01:59:11 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 01:59:11 PM :: base.py :: DEBUG    :: * Snapshot 0482
+07/08/2025 02:01:27 PM :: pynbody.halo :: ERROR    :: Unable to load AHF substructure file; continuing without. To expose the underlying problem as an exception, pass ignore_missing_substructure=False to the AHFCatalogue constructor
+07/08/2025 02:01:27 PM :: base.py :: DEBUG    :: * Snapshot 0291
+07/08/2025 02:03:33 PM :: PartTracker :: DEBUG    :: Saving output to Data/tracked_particles.hdf5
+07/08/2025 02:03:45 PM :: base.py :: DEBUG    :: Process 6934 acquired lock and is saving cptmarvel_8...
+07/08/2025 02:03:45 PM :: base.py :: DEBUG    :: key cptmarvel_8 already exists, removing it before saving.
+07/08/2025 02:04:21 PM :: base.py :: DEBUG    :: Process 6934 finished saving.
+07/10/2025 01:23:34 AM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/10/2025 01:23:34 AM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-8
+07/10/2025 01:23:34 AM :: base.py :: DEBUG    :: Loading tracked particles for cptmarvel-8...
+07/10/2025 01:24:59 AM :: base.py :: DEBUG    :: Successfully loaded
+07/10/2025 01:25:02 AM :: base.py :: DEBUG    :: > Returning <tracked_particle> dataset <
+07/10/2025 01:25:02 AM :: PartCalculator :: DEBUG    :: Read tracked particles data
+07/10/2025 01:25:02 AM :: PartCalculator :: DEBUG    :: Calculating ejected and expelled particles
+07/10/2025 01:25:02 AM :: base.py :: DEBUG    :: Now computing ejected/expelled particles for cptmarvel-8...
+07/10/2025 01:25:11 AM :: base.py :: DEBUG    :: Previous state columns created for gal_disk, gal_halo, and in_galaxy.
+07/10/2025 01:25:12 AM :: base.py :: DEBUG    :: Ejection mask created with 53258 particles ejected.
+07/10/2025 01:25:13 AM :: base.py :: DEBUG    :: Cooling mask created with 54939 particles cooled.
+07/10/2025 01:25:13 AM :: base.py :: DEBUG    :: Expulsion mask created with 163976 particles expelled.
+07/10/2025 01:25:14 AM :: base.py :: DEBUG    :: Accretion mask created with 571804 particles accreted.
+07/10/2025 01:25:15 AM :: base.py :: DEBUG    :: Dropping temporary columns used for calculations.
+07/10/2025 01:25:15 AM :: base.py :: DEBUG    :: Saving results for cptmarvel_8...
+07/10/2025 01:25:15 AM :: base.py :: DEBUG    :: Process 45467 acquired lock and is saving cptmarvel_8...
+07/10/2025 01:25:15 AM :: base.py :: DEBUG    :: Process 45467 finished saving.
+07/10/2025 01:25:15 AM :: base.py :: DEBUG    :: Process 45467 acquired lock and is saving cptmarvel_8...
+07/10/2025 01:25:15 AM :: base.py :: DEBUG    :: Process 45467 finished saving.
+07/10/2025 01:25:15 AM :: base.py :: DEBUG    :: Process 45467 acquired lock and is saving cptmarvel_8...
+07/10/2025 01:25:16 AM :: base.py :: DEBUG    :: Process 45467 finished saving.
+07/10/2025 01:25:16 AM :: base.py :: DEBUG    :: Process 45467 acquired lock and is saving cptmarvel_8...
+07/10/2025 01:25:19 AM :: base.py :: DEBUG    :: Process 45467 finished saving.
+07/10/2025 01:25:19 AM :: base.py :: DEBUG    :: Ejected, cooled, expelled, and accreted particles calculated and saved successfully.
+07/10/2025 02:01:34 AM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/10/2025 02:01:34 AM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-8
+07/10/2025 02:01:34 AM :: base.py :: DEBUG    :: Loading tracked particles for cptmarvel-8...
+07/10/2025 02:01:43 AM :: base.py :: DEBUG    :: Successfully loaded
+07/10/2025 02:01:45 AM :: base.py :: DEBUG    :: > Returning <tracked_particle> dataset <
+07/10/2025 02:01:45 AM :: PartCalculator :: DEBUG    :: Read tracked particles data
+07/10/2025 02:01:45 AM :: PartCalculator :: DEBUG    :: Calculating disk outflows
+07/10/2025 02:01:45 AM :: base.py :: DEBUG    :: Now identifying disk outflows for cptmarvel-8...
+07/10/2025 02:01:54 AM :: base.py :: DEBUG    :: Outflow mask created with 55018 particles outflowing.
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Inflow mask created with 60395 particles inflowing.
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Classifying supernova-heated subset of outflows...
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Outflows classified: 1368 particles are SN-heated.
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Dropping temporary columns used for calculations.
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Saving results for cptmarvel_8...
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Process 65172 acquired lock and is saving cptmarvel_8...
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Process 65172 finished saving.
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Process 65172 acquired lock and is saving cptmarvel_8...
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Process 65172 finished saving.
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Process 65172 acquired lock and is saving cptmarvel_8...
+07/10/2025 02:01:55 AM :: base.py :: DEBUG    :: Process 65172 finished saving.

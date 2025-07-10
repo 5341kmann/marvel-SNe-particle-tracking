@@ -1,0 +1,7 @@
+# BEGIN: Ignore log and data files
+*.log
+*.data
+*.pickle
+*.xlsx
+*.hdf5
+# END: Ignore log and data files

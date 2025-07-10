@@ -31,7 +31,7 @@ haloids_storm = {}
 
 # converting traceback to dictionary - for cptmarvel
 df = pd.read_hdf(traceback_cptmarvel).apply(list, axis=1).to_dict()
-haloids_cptmarvel = {k: [k] + v for k, v in df.items()}
+haloids_cptmarvel = {k: [k] + v[:len(filepaths_cptmarvel)-1] for k, v in df.items()}
 
 # haloids_cptmarvel:
 #  1: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 42, 49, 3],
