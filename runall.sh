@@ -35,18 +35,18 @@ echo "Changed directory to $PROGRAM_PATH"
 
 date
 python propertiescalculating.py cptmarvel 1 &
-# python propertiescalculating.py cptmarvel 2 &
-# python propertiescalculating.py cptmarvel 3 &
-# # python propertiescalculating.py cptmarvel 5 &
-# wait
-# python propertiescalculating.py cptmarvel 6 &
-# python propertiescalculating.py cptmarvel 7 &
-# python propertiescalculating.py cptmarvel 8 &
-# wait
-# # python propertiescalculating.py cptmarvel 10 &
-# python propertiescalculating.py cptmarvel 11 &
-# python propertiescalculating.py cptmarvel 13 
-# python propertiescalculating.py cptmarvel 16 
+python propertiescalculating.py cptmarvel 2 &
+python propertiescalculating.py cptmarvel 3 &
+python propertiescalculating.py cptmarvel 5 &
+wait
+python propertiescalculating.py cptmarvel 6 &
+python propertiescalculating.py cptmarvel 7 &
+python propertiescalculating.py cptmarvel 8 &
+wait
+python propertiescalculating.py cptmarvel 10 &
+python propertiescalculating.py cptmarvel 11 &
+python propertiescalculating.py cptmarvel 13 
+python propertiescalculating.py cptmarvel 16 
 
 # python write_discharged.py
 # include `wait` in between commands to do them in batches

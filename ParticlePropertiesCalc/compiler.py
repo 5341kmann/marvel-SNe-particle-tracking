@@ -95,59 +95,6 @@ def calc_ejected_expelled(data, sim, haloid):
     #--------------------------------#
 #
     logger.debug(f'Now computing ejected/expelled particles for {sim}-{haloid}...')
-    ejected = pd.DataFrame()
-    cooled = pd.DataFrame()
-    expelled = pd.DataFrame()
-    accreted = pd.DataFrame()
-    
-    pids = np.unique(data.pid)
-    # ------------ This was too slow -------------
-    # # comparing particle at previous step with current step to determine ejection/expulsion.
-    # # time sorted time-series analysis for more robust relative ordering for particle classifcation
-    # for pid in tqdm.tqdm(pids, desc="Processing particles"):
-    #     dat = data[data.pid==pid].sort_values('time').reset_index(drop=True)
-
-    #     gal_disk = np.array(dat.gal_disk, dtype=bool)
-    #     gal_halo = np.array(dat.gal_halo, dtype=bool)
-    #     in_gal = np.array(dat.in_galaxy, dtype=bool)
-
-
-    #     for i in range(1, len(dat)):
-    #             # particle ejection
-    #             if gal_disk[i-1] and gal_halo[i]:
-    #                 ejected = pd.concat([ejected, dat.iloc[[i]]])
-
-    #             # particle cooling
-    #             if gal_halo[i-1] and gal_disk[i]:
-    #                 cooled = pd.concat([cooled, dat.iloc[[i]]])
-
-    #             # particle expulsion    
-    #             if in_gal[i-1] and not in_gal[i]:
-    #                 row_frame = data.iloc[[i]].copy()
-    #                 # more descriptive orign classification
-    #                 row_frame['expulsion_origin'] = 'gal_disk' if gal_disk[i-1] else 'gal_halo'
-    #                 expelled = pd.concat([expelled, row_frame])
-                
-    #             # particle accretion  
-    #             if not in_gal[i-1] and in_gal[i]:
-    #                 row_frame = dat.iloc[[i]].copy()
-    #                 row_frame['accreation_dest'] = 'gal_disk' if gal_disk[i] else 'gal_halo'
-    #                 accreted = pd.concat([accreted, row_frame])
-    
-    # key = f'{sim}_{haloid}'
-
-    # filepath = 'Data/SNe/ejected_particles.hdf5'
-    # save_with_lock(ejected, filepath, key=key)
-    
-    # filepath = 'Data/SNe/cooled_particles.hdf5'
-    # save_with_lock(cooled, filepath, key=key)
-
-    # filepath = 'Data/SNe/expelled_particles.hdf5'
-    # save_with_lock(expelled, filepath, key=key)
-            
-    # filepath ='Data/SNe/accreted_particles.hdf5'
-    # save_with_lock(accreted, filepath, key=key)
-    # --------------------------------
 
     # Using vectorized operations for greater efficiency
     # 1. Sort the data by 'pid' and 'time' to ensure chronological order for each particle
@@ -233,12 +180,22 @@ def calc_disk_outflows(data, sim, haloid):
     # ---  Identify Supernova-Heated Outflows ---
     logger.debug('Classifying supernova-heated subset of outflows...')
     if not disk_outflows.empty:
-        #if cooling is turned off, particle is SNe heated
-        #checks state of particle prior to outflow
-        is_sn_heated = np.array(pre_outflow_states.coolontime) > np.array(pre_outflow_states.time)
-        disk_outflows = disk_outflows.reset_index(drop=True)  # Reset index for consistency
+        # reseting indexes to ensure alignment
+        disk_outflows = disk_outflows.reset_index(drop=True)
+        pre_outflow_states = pre_outflow_states.reset_index(drop=True)
+
+        #classifying SNe heated as having both
+        # coolontime greater than the time at the previous step.
+        # previous coolontime greater than the time at that timestep
+        #  - capuring SNe activity occuring between two timestep while excluding activity begining prior to previous timestep
+        condition1 = disk_outflows['coolontime'] > pre_outflow_states['time']
+        condition2 = pre_outflow_states['coolontime'] < pre_outflow_states['time']
+        
+        # Combine the conditions to find particles heated between the two snapshots.
+        is_sn_heated = condition1 & condition2
+
+        # --- Assign the final boolean flag ---
         disk_outflows['snHeated'] = is_sn_heated
-        logger.debug(f'Outflows classified: {disk_outflows["snHeated"].sum()} particles are SN-heated.')
 
     # removing temporary columns used for calculations
     logger.debug('Dropping temporary columns used for calculations.')
@@ -254,55 +211,9 @@ def calc_disk_outflows(data, sim, haloid):
     save_with_lock(disk_outflows, 'Data/SNe/disk_outflows.hdf5', key)
     save_with_lock(disk_inflows, 'Data/SNe/disk_inflows.hdf5', key)
 
-def calc_hot_predischarged(sim, haloid, save=True, verbose=True):
-    '''
-    -> Identifies discharged gas particles that experienced supernova heating just prior to being 
-        discharged. Properties prior to discharge are recorded in 'hot_predischarged'. 
-    '''
-    #--------------------------------#
-    
-    import tqdm
-    data = read_tracked_particles(sim, haloid, verbose=verbose)
-    
-    logger.debug(f'Now compiling hot_predischarged particles for {sim}-{haloid}...')
-    
-    hot_predischarged = pd.DataFrame() # properties pre-discharge for heated gas.
-    
-    
-    pids = np.unique(data.pid)
-    for pid in tqdm.tqdm(pids):
-        dat = data[data.pid==pid]
-
-        gal_disk = np.array(dat.gal_disk, dtype=bool)
-        in_gal = np.array(dat.in_galaxy, dtype=bool)
-        outside_disk = ~gal_disk
-        
-        time = np.array(dat.time, dtype=float)
-        coolontime = np.array(dat.coolontime, dtype=float)
 
 
-        for i,t2 in enumerate(time[1:]):
-                i += 1
-                if gal_disk[i-1] and outside_disk[i] and (coolontime[i] > time[i-1]): #discharged and SN-heated
-                    out = dat[time==time[i-1]].copy()
-                    hot_predischarged = pd.concat([hot_predischarged, out])
-                 
-    # apply the calc_angles function along the rows of discharged particles.
-    logger.debug('Calculating hot_predischarged angles;')
-    hot_predischarged = hot_predischarged.apply(calc_angles, axis=1)
-   
-    
-    if save:
-        key = f'{sim}_{str(int(haloid))}'
-        filepath = f'{rootPath}SNe-heated_Gas_Flow/SNe/hot_predischarged_particles.hdf5'
-        logger.debug(f'Saving {key} pre-dsrg, SN-heated particles to {filepath}')
-        hot_predischarged.to_hdf(filepath, key=key)
-        
-    logger.debug(f'> Returning (hot_predischarged) <')
-    return hot_predischarged
-
-
-def calc_reaccreted(sim, haloid, save=True, verbose=True):
+def calc_reaccreted(sim, haloid):
     ''' 
     -> 'Advanced' computation of accreted gas particles denoted 'reaccreted'.
     -> Screening the 'accreted' df compiled by 'calc_discharge()' specifically for gas particles 
@@ -311,14 +222,13 @@ def calc_reaccreted(sim, haloid, save=True, verbose=True):
     -> (Only particles with an accretion event that has a directly preceeding discharge event are 
         compiled into 'reaccreted'.)
     '''
-    #--------------------------------#
-    
+        
     import tqdm
     key = f'{sim}_{str(int(haloid))}'
 
-    path = f'{rootPath}SNe-heated_Gas_Flow/SNe/discharged_particles.hdf5'
+    path = 'Data/SNe/discharged_particles.hdf5'
     discharged = pd.read_hdf(path, key=key)
-    path = f'{rootPath}SNe-heated_Gas_Flow/SNe/accreted_particles.hdf5'
+    path = 'Data/SNe/accreted_particles.hdf5'
     accreted = pd.read_hdf(path, key=key)
 
 
@@ -380,53 +290,32 @@ def calc_reaccreted(sim, haloid, save=True, verbose=True):
     return reaccreted
 
 
-def calc_expelled(key, save=True, verbose=True):
-    #find expelled (permanently) gas
-    #define gas particles as 'expelled' if they are not reaccreted onto the disk of their host satellite
-    #after being discharged
-    
-    logger.debug(f'Now compiling expelled particles for {key}...')
-    
-    #load discharged, reaccreted gas particles
-    predischarged,discharged = read_one_discharged(key)
-    _,reaccreted = read_one_accreted(key)
-    
-    #create a dataframe for expelled gas
-    expelled = pd.DataFrame()
-    preexpelled = pd.DataFrame()
-    
-    #pid as np.array
-    did = np.array(discharged.pid)
-    rid = np.array(reaccreted.pid)
-    
-    #drop the duplicates of pids and get unique set
-    dfunique = discharged.drop_duplicates(subset=['pid'], keep='last')
-    
-    #find the pid expelled
-    index = np.argsort(rid)
-    sorted_rid = rid[index]  # Sorted list of ids reaccreted
+def calc_perm_expelled(key):
 
-    from collections import Counter
-    #find ids that discharged more than reaccreted (expelled at the last timestep)
-    #also find pids that discharged but never be reaccreted
-    subCount = Counter(did) - Counter(sorted_rid)
-    dunique = np.array(list(subCount.items()))[:,0]
-    expelled = dfunique[np.isin(dfunique.pid, dunique, assume_unique=True)]
+    # checks for the existence of the necessary hdf5 files.
+    if not os.path.exists('Data/SNe/disk_inflows.hdf5'):
+        logger.error('Disk inflows hdf5 not yet produced. Please populate inflows at Data/SNe/disk_inflows.hdf5')
+        return
+    if not os.path.exists('Data/SNe/disk_outflows.hdf5'):
+        logger.error('Disk outflows hdf5 not yet produced. Please populate outflows at Data/SNe/disk_outflows.hdf5')
+        return
+
+    # reads in the disk inflows and outflows, concatenating them into a single dataframe and adds event_type column classifying the events as either inflow or outflow.
+    halo_crossed = pd.concat([pd.read_hdf('Data/SNe/disk_inflows.hdf5', key=key).assign(event_type = 'inflow'), pd.read_hdf('Data/SNe/disk_outflows.hdf5', key=key).assign(event_type = 'outflow')])
+
+    halo_crossed = halo_crossed.sort_values(['pid', 'time'])
+
+    last_cross = halo_crossed.drop_duplicates(subset=['pid'], keep='last')
+
+    permanent_expelled = last_cross[last_cross['event_type'] == 'outflow']
+
     
-    #do the same for predischarged
-    pre_dfunique = predischarged.drop_duplicates(subset=['pid'], keep='last')
-    preexpelled = pre_dfunique[np.isin(dfunique.pid, dunique, assume_unique=True)]
-    if save:
-        filepath = f'{rootPath}SNe-heated_Gas_Flow/SNe/expelled_particles.hdf5'
-        logger.debug(f'Saving {key} expelled particles to {filepath}')
-        expelled.to_hdf(filepath, key=key)
-        
-        filepath = f'{rootPath}SNe-heated_Gas_Flow/SNe/preexpelled_particles.hdf5'
-        logger.debug(f'Saving {key} preexpelled particles to {filepath}')
-        preexpelled.to_hdf(filepath, key=key)
-        
-    logger.debug(f'> Returning (predischarged, discharged, accreted) datasets <')
-    return preexpelled, expelled
+    
+    
+    inflows = pd.read_hdf('Data/SNe/disk_inflows.hdf5')
+    outflows = pd.read_hdf('Data/SNe/disk_outflows.hdf5')
+
+
 
 
 def calc_snHeated(particles):
