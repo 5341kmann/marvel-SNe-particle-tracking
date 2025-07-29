@@ -2,10 +2,10 @@ import pynbody
 import pandas as pd
 import numpy as np
 import pickle
-import logging 
 import sys
-import os
-import time
+import json
+from utils import set_logger, os, logging
+from filelock import FileLock, Timeout
 from config import *
 
 
@@ -20,40 +20,40 @@ pynbody.config['halo-class-priority'] =  [pynbody.halo.ahf.AHFCatalogue,
 
 def save_with_lock(df, savepath, key):
     """
-    Saves a DataFrame to an HDF5 file with a file lock to prevent race conditions.
+    Saves a DataFrame to an HDF5 file with FileLock to prevent race conditions.
     Allows for robust parallel operations where multiple processes might try to write to the same file.
     """
     lock_path = savepath + '.lock'
 
     # safely makedir of savepath if it does not exist
     os.makedirs(os.path.dirname(savepath), exist_ok=True)
-
-    # checks
-    while os.path.exists(lock_path):
-        # Wait for a short, random interval to avoid overwhelming the file system
-        time.sleep(0.1 + 0.1 * os.getpid() % 1) 
         
+    # filelock object to manage the locking
+    lock = FileLock(lock_path, timeout=30) # 30 seconds timeout for acquiring the lock
+    
     try:
-        # 2. Acquire the lock by creating the lock file
-        with open(lock_path, 'w') as f:
-            f.write(str(os.getpid())) # Write process ID for debugging
 
-        # Use mode 'a'(append) so we don't overwrite the entire file each time
-        logger.debug(f"Process {os.getpid()} acquired lock and is saving {key}...")
+        # acquire the lock
+        with lock:
+            logger.debug(f"Process {os.getpid()} acquired lock and is saving {key}...")
 
-        with pd.HDFStore(savepath, mode='a') as store:
-            if key in store:
-                # If the key already exists, remove it.
-                logger.debug(f'key {key} already exists, removing it before saving.')
-                store.remove(key) 
+            with pd.HDFStore(savepath, mode='a') as store:
+                if key in store:
+                    # If the key already exists, remove it.
+                    logger.debug(f'key {key} already exists, removing it before saving.')
+                    store.remove(key) 
 
-            store.put(key, df, format='table') 
-            logger.debug(f"Process {os.getpid()} finished saving.")
+                store.put(key, df, format='table') 
+                logger.debug(f"Process {os.getpid()} finished saving.")
 
-    finally:
-        # remove the lock file after saving
-        if os.path.exists(lock_path):
-            os.remove(lock_path)
+    except Timeout:
+        logger.error(f"Process {os.getpid()} timed out waiting for lock on {savepath}. Skipping save for key {key}.")
+        # You might want to re-raise this or handle it depending on your needs
+    except Exception as e:
+        logger.error(f"Process {os.getpid()} encountered an error during HDF5 save for key {key}: {e}")
+        # Log the full traceback for more details:
+        logger.exception("Full traceback for HDF5 save error:") # This will print the stack trace
+
             
 
 # define functions for basic data manipulation, importing, etc. used by everything

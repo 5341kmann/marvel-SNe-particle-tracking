@@ -401,3 +401,186 @@ because its data contents are not [string] but [boolean] object dtype
 07/10/2025 03:19:07 PM :: base.py :: DEBUG    :: Process 14976 acquired lock and is saving cptmarvel_16...
 07/10/2025 03:19:07 PM :: base.py :: DEBUG    :: key cptmarvel_16 already exists, removing it before saving.
 07/10/2025 03:19:08 PM :: base.py :: DEBUG    :: Process 14976 finished saving.
+07/21/2025 04:10:19 PM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/21/2025 04:10:19 PM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-16
+07/21/2025 04:10:19 PM :: PartCalculator :: DEBUG    :: Calculating permantly expelled particles
+07/21/2025 04:10:19 PM :: base.py :: ERROR    :: The accreated particles fil has not yet been produced.
+                     Please populate outflows at Data/SNe/accreated_particles.hdf5 using calc_ejected_expelled()
+07/21/2025 04:14:48 PM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/21/2025 04:14:48 PM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-16
+07/21/2025 04:14:48 PM :: PartCalculator :: DEBUG    :: Calculating permantly expelled particles
+07/21/2025 04:14:48 PM :: base.py :: ERROR    :: Uncaught exception
+Traceback (most recent call last):
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/propertiescalculating.py", line 34, in <module>
+    calc_perm_expelled(f'{sim}_{z0haloid}')
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/compiler.py", line 305, in calc_perm_expelled
+    particle_flows = pd.concat([pd.read_hdf('Data/SNe/acreted_particles.hdf5', key=key).assign(event_type = 'inflow'),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 429, in read_hdf
+    raise FileNotFoundError(f"File {path_or_buf} does not exist")
+FileNotFoundError: File Data/SNe/acreted_particles.hdf5 does not exist
+07/21/2025 04:16:50 PM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/21/2025 04:16:50 PM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-16
+07/21/2025 04:16:50 PM :: PartCalculator :: DEBUG    :: Calculating permantly expelled particles
+07/21/2025 04:16:50 PM :: base.py :: DEBUG    :: Process 72478 acquired lock and is saving cptmarvel_16...
+07/21/2025 04:16:50 PM :: base.py :: DEBUG    :: Process 72478 finished saving.
+07/22/2025 01:57:58 PM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/22/2025 01:57:58 PM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-16
+07/22/2025 01:57:58 PM :: base.py :: DEBUG    :: Loading tracked particles for cptmarvel-16...
+07/22/2025 01:58:13 PM :: base.py :: DEBUG    :: Successfully loaded
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: > Returning <tracked_particle> dataset <
+07/22/2025 01:58:15 PM :: PartCalculator :: DEBUG    :: Calculating ejected and expelled particles
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: Now computing ejected/expelled particles for cptmarvel-16...
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: Previous state columns created for gal_disk, gal_halo, and in_galaxy.
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: Ejection mask created with 25100 particles ejected.
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: Cooling mask created with 24666 particles cooled.
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: Expulsion mask created with 26802 particles expelled.
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: Accretion mask created with 41200 particles accreted.
+07/22/2025 01:58:15 PM :: base.py :: DEBUG    :: Saving results for cptmarvel_16...
+07/22/2025 01:58:39 PM :: base.py :: DEBUG    :: Process 22564 acquired lock and is saving cptmarvel_16...
+07/22/2025 01:58:51 PM :: base.py :: DEBUG    :: key cptmarvel_16 already exists, removing it before saving.
+07/22/2025 01:59:13 PM :: base.py :: ERROR    :: Uncaught exception
+Traceback (most recent call last):
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/propertiescalculating.py", line 28, in <module>
+    calc_ejected_expelled(data, sim, z0haloid)
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/compiler.py", line 147, in calc_ejected_expelled
+    save_with_lock(ejected, 'Data/SNe/ejected_particles.hdf5', key)
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/../base.py", line 51, in save_with_lock
+    store.put(key, df, format='table')
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 1165, in put
+    self._write_to_group(
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 1863, in _write_to_group
+    s.write(
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 4428, in write
+    table = self._create_axes(
+            ^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 4073, in _create_axes
+    data_converted = _maybe_convert_for_string_atom(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 5153, in _maybe_convert_for_string_atom
+    raise TypeError(
+TypeError: Cannot serialize the column [prev_gal_disk]
+because its data contents are not [string] but [boolean] object dtype
+07/22/2025 02:24:22 PM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/22/2025 02:24:22 PM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-16
+07/22/2025 02:24:22 PM :: base.py :: DEBUG    :: Loading tracked particles for cptmarvel-16...
+07/22/2025 02:24:35 PM :: base.py :: DEBUG    :: Successfully loaded
+07/22/2025 02:24:40 PM :: base.py :: DEBUG    :: > Returning <tracked_particle> dataset <
+07/22/2025 02:24:40 PM :: PartCalculator :: DEBUG    :: Calculating ejected and expelled particles
+07/22/2025 02:24:40 PM :: base.py :: DEBUG    :: Now computing ejected/expelled particles for cptmarvel-16...
+07/22/2025 02:24:41 PM :: base.py :: DEBUG    :: Previous state columns created for gal_disk, gal_halo, and in_galaxy.
+07/22/2025 02:24:41 PM :: base.py :: DEBUG    :: Ejection mask created with 25100 particles ejected.
+07/22/2025 02:24:41 PM :: base.py :: DEBUG    :: Cooling mask created with 24666 particles cooled.
+07/22/2025 02:24:41 PM :: base.py :: DEBUG    :: Expulsion mask created with 26802 particles expelled.
+07/22/2025 02:24:41 PM :: base.py :: DEBUG    :: Accretion mask created with 41200 particles accreted.
+07/22/2025 02:24:42 PM :: base.py :: DEBUG    :: Converted "prev_" boolean columns to float dtype for HDF5 compatibility.
+07/22/2025 02:24:43 PM :: base.py :: DEBUG    :: Saving results for cptmarvel_16...
+07/22/2025 02:25:01 PM :: base.py :: DEBUG    :: Process 35329 acquired lock and is saving cptmarvel_16...
+07/22/2025 02:25:15 PM :: base.py :: DEBUG    :: key cptmarvel_16 already exists, removing it before saving.
+07/22/2025 02:25:34 PM :: base.py :: ERROR    :: Uncaught exception
+Traceback (most recent call last):
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/propertiescalculating.py", line 28, in <module>
+    calc_ejected_expelled(data, sim, z0haloid)
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/compiler.py", line 153, in calc_ejected_expelled
+    save_with_lock(ejected, 'Data/SNe/ejected_particles.hdf5', key)
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/../base.py", line 51, in save_with_lock
+    store.put(key, df, format='table')
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 1165, in put
+    self._write_to_group(
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 1863, in _write_to_group
+    s.write(
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 4428, in write
+    table = self._create_axes(
+            ^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 4073, in _create_axes
+    data_converted = _maybe_convert_for_string_atom(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 5153, in _maybe_convert_for_string_atom
+    raise TypeError(
+TypeError: Cannot serialize the column [prev_gal_disk]
+because its data contents are not [string] but [boolean] object dtype
+07/22/2025 02:40:33 PM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/22/2025 02:40:33 PM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-16
+07/22/2025 02:40:33 PM :: base.py :: DEBUG    :: Loading tracked particles for cptmarvel-16...
+07/22/2025 02:40:46 PM :: base.py :: DEBUG    :: Successfully loaded
+07/22/2025 02:40:47 PM :: base.py :: DEBUG    :: > Returning <tracked_particle> dataset <
+07/22/2025 02:40:47 PM :: PartCalculator :: DEBUG    :: Calculating ejected and expelled particles
+07/22/2025 02:40:47 PM :: base.py :: DEBUG    :: Now computing ejected/expelled particles for cptmarvel-16...
+07/22/2025 02:40:47 PM :: base.py :: DEBUG    :: Previous state columns created for gal_disk, gal_halo, and in_galaxy.
+07/22/2025 02:40:47 PM :: base.py :: DEBUG    :: Ejection mask created with 25100 particles ejected.
+07/22/2025 02:40:47 PM :: base.py :: DEBUG    :: Cooling mask created with 24666 particles cooled.
+07/22/2025 02:40:47 PM :: base.py :: DEBUG    :: Expulsion mask created with 26802 particles expelled.
+07/22/2025 02:40:47 PM :: base.py :: DEBUG    :: Accretion mask created with 41200 particles accreted.
+07/22/2025 02:40:49 PM :: base.py :: DEBUG    :: Converted "prev_" boolean columns to float dtype for HDF5 compatibility.
+07/22/2025 02:40:49 PM :: base.py :: DEBUG    :: Saving results for cptmarvel_16...
+07/22/2025 02:41:19 PM :: base.py :: DEBUG    :: Process 43721 acquired lock and is saving cptmarvel_16...
+07/22/2025 02:41:30 PM :: base.py :: ERROR    :: Uncaught exception
+Traceback (most recent call last):
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/propertiescalculating.py", line 28, in <module>
+    calc_ejected_expelled(data, sim, z0haloid)
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/compiler.py", line 153, in calc_ejected_expelled
+    save_with_lock(ejected, 'Data/SNe/ejected_particles.hdf5', key)
+  File "/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/ParticlePropertiesCalc/../base.py", line 45, in save_with_lock
+    with pd.HDFStore(savepath, mode='a') as store:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 590, in __init__
+    self.open(mode=mode, **kwargs)
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/pandas/io/pytables.py", line 750, in open
+    self._handle = tables.open_file(self._path, self._mode, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/tables/file.py", line 325, in open_file
+    return File(filename, mode, title, root_uep, filters, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sackmann/anaconda3/envs/conda-env-py311/lib/python3.11/site-packages/tables/file.py", line 811, in __init__
+    self._g_new(filename, mode, **params)
+  File "tables/hdf5extension.pyx", line 617, in tables.hdf5extension.File._g_new
+tables.exceptions.HDF5ExtError: HDF5 error back trace
+
+  File "/croot/hdf5_1739225554196/work/src/H5F.c", line 827, in H5Fopen
+    unable to synchronously open file
+  File "/croot/hdf5_1739225554196/work/src/H5F.c", line 788, in H5F__open_api_common
+    unable to open file
+  File "/croot/hdf5_1739225554196/work/src/H5VLcallback.c", line 3680, in H5VL_file_open
+    open failed
+  File "/croot/hdf5_1739225554196/work/src/H5VLcallback.c", line 3514, in H5VL__file_open
+    open failed
+  File "/croot/hdf5_1739225554196/work/src/H5VLnative_file.c", line 128, in H5VL__native_file_open
+    unable to open file
+  File "/croot/hdf5_1739225554196/work/src/H5Fint.c", line 1963, in H5F_open
+    unable to lock the file
+  File "/croot/hdf5_1739225554196/work/src/H5FD.c", line 2402, in H5FD_lock
+    driver lock request failed
+  File "/croot/hdf5_1739225554196/work/src/H5FDsec2.c", line 956, in H5FD__sec2_lock
+    unable to lock file, errno = 11, error message = 'Resource temporarily unavailable'
+
+End of HDF5 error back trace
+
+Unable to open/create file 'Data/SNe/ejected_particles.hdf5'
+07/22/2025 02:48:40 PM :: PartCalculator :: DEBUG    :: --------------------------------------------------------------
+07/22/2025 02:48:40 PM :: PartCalculator :: DEBUG    :: Beginning particle calculations for cptmarvel-16
+07/22/2025 02:48:40 PM :: base.py :: DEBUG    :: Loading tracked particles for cptmarvel-16...
+07/22/2025 02:49:09 PM :: base.py :: DEBUG    :: Successfully loaded
+07/22/2025 02:49:09 PM :: base.py :: DEBUG    :: > Returning <tracked_particle> dataset <
+07/22/2025 02:49:09 PM :: PartCalculator :: DEBUG    :: Calculating ejected and expelled particles
+07/22/2025 02:49:09 PM :: base.py :: DEBUG    :: Now computing ejected/expelled particles for cptmarvel-16...
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Previous state columns created for gal_disk, gal_halo, and in_galaxy.
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Ejection mask created with 25100 particles ejected.
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Cooling mask created with 24666 particles cooled.
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Expulsion mask created with 26802 particles expelled.
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Accretion mask created with 41200 particles accreted.
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Converted "prev_" boolean columns to float dtype for HDF5 compatibility.
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Saving results for cptmarvel_16...
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Process 47555 acquired lock and is saving cptmarvel_16...
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: key cptmarvel_16 already exists, removing it before saving.
+07/22/2025 02:49:10 PM :: base.py :: DEBUG    :: Process 47555 finished saving.
+07/22/2025 02:49:12 PM :: base.py :: DEBUG    :: Process 47555 acquired lock and is saving cptmarvel_16...
+07/22/2025 02:49:12 PM :: base.py :: DEBUG    :: key cptmarvel_16 already exists, removing it before saving.
+07/22/2025 02:49:12 PM :: base.py :: DEBUG    :: Process 47555 finished saving.
+07/22/2025 02:49:12 PM :: base.py :: DEBUG    :: Process 47555 acquired lock and is saving cptmarvel_16...
+07/22/2025 02:49:12 PM :: base.py :: DEBUG    :: key cptmarvel_16 already exists, removing it before saving.
+07/22/2025 02:49:12 PM :: base.py :: DEBUG    :: Process 47555 finished saving.
+07/22/2025 02:49:13 PM :: base.py :: DEBUG    :: Process 47555 acquired lock and is saving cptmarvel_16...
+07/22/2025 02:49:13 PM :: base.py :: DEBUG    :: key cptmarvel_16 already exists, removing it before saving.
+07/22/2025 02:49:13 PM :: base.py :: DEBUG    :: Process 47555 finished saving.
+07/22/2025 02:49:13 PM :: base.py :: DEBUG    :: Ejected, cooled, expelled, and accreted particles calculated and saved successfully.
+2025-07-26 21:48:26,406 - halo_mlf_by_tracked-cptmarvel_16 - DEBUG - Starting mass loading factor calculation for halo.

@@ -1,0 +1,195 @@
+{
+    "cptmarvel_1": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {
+            "4096_0p95_0p10": false,
+            "4096_0p25_0p10": false
+        },
+        "expelled_perm_mlf": false,
+        "disk_mlf": false
+    },
+    "cptmarvel_2": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_3": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_5": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_6": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_7": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_8": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_10": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_11": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_13": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "cptmarvel_16": {
+        "halo_mass": true,
+        "stellar_mass": true,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h229_18": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h229_20": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h229_22": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h229_49": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_4": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_6": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_7": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_10": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_12": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_23": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_27": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_38": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_55": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_65": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_249": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h148_251": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    }
+}

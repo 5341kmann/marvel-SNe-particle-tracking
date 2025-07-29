@@ -25,10 +25,22 @@ M_NEUTRON = 1.675e-27
 HUBBLE =  0.6776942783267969 
 
 # Age of Universe at Redshift z=0 (Gyr)
-AGE = 13.800797497330507
+AGE_Z_0 = 13.800797497330507
+
+# Average age of z=0 time (Gyr) for Justice League simulations
+APPROX_JLSIM_Z_0 = 13.800490808
+
+# Average age of z=0 time (Gyr) for Marvel simulations
+APPROX_MARVELSIM_Z_0 = 13.73111853
 
 # path to marvel-SNe-particle-tracking folder
 PROGRAM_PATH = '/home/sackmann/Documents/MAP/marvel-SNe-particle-tracking/'
 
 # path to simulations folder
 SIM_FOLDER_PATH = '/data/Sims/'
+
+# path to the tracked Justice League particles
+JL_TRACKED_PARTICLES_PATH = '/home/christenc/Code/python/Justice_League_Code/Data/tracked_particles.hdf5'
+
+# path to the Justice League SNe data
+JL_SNE_DATA_PATH = '/home/christenc/Code/python/SNe-heated_Gas_Flow/SNeData/'

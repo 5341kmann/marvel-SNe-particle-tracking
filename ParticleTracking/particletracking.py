@@ -26,8 +26,8 @@ if __name__ == '__main__':
 
     logger.debug('Start on snapshot: {}'.format(filepaths[0][-4:]))
         
-    # filepaths and haloids now go the "right" way, i.e. starts from start_snap and goes until z=0
-    assert len(filepaths) >= len(haloids)
+    # # filepaths and haloids now go the "right" way, i.e. starts from start_snap and goes until z=0
+    # assert len(filepaths) >= len(haloids)
 
     # we save the data as an .hdf5 file since this is meant for large datasets, so that should work pretty good
     output = run_tracking(sim, z0haloid, filepaths, haloids)

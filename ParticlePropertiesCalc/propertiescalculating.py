@@ -18,17 +18,20 @@ if __name__ == '__main__':
     logger = logging.getLogger('PartCalculator')
 
     logger.debug('--------------------------------------------------------------')
-    logger.debug('Beginning particle calculations for {}-{}'.format(sim, z0haloid))
+    logger.debug(f'Beginning particle calculations for {sim}_{z0haloid}')
 
 
     data = read_tracked_particles(sim, z0haloid)
-    logger.debug('Read tracked particles data')
+    # logger.debug('Read tracked particles data')
 
-    # logger.debug('Calculating ejected and expelled particles')
-    # calc_ejected_expelled(data, sim, z0haloid)
+    logger.debug('Calculating ejected and expelled particles')
+    calc_ejected_expelled(data, sim, z0haloid)
 
-    logger.debug('Calculating disk outflows')
-    calc_disk_outflows(data, sim, z0haloid)
+    # logger.debug('Calculating disk outflows')
+    # calc_disk_outflows(data, sim, z0haloid)
+
+    # logger.debug('Calculating permantly expelled particles')
+    # calc_perm_expelled(f'{sim}_{z0haloid}')
     # in order: debug, info, warning, error
 
 

@@ -4,4 +4,7 @@
 *.pickle
 *.xlsx
 *.hdf5
+*.lock
+*.png
+# *.json
 # END: Ignore log and data files
