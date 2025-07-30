@@ -11,71 +11,71 @@
         "disk_mlf": false
     },
     "cptmarvel_2": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_3": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_5": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_6": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_7": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_8": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_10": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_11": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_13": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
     "cptmarvel_16": {
-        "halo_mass": true,
-        "stellar_mass": true,
+        "halo_mass": false,
+        "stellar_mass": false,
         "expelled_mlf": false,
         "expelled_flux_mlf": {},
         "disk_mlf": true
@@ -83,7 +83,7 @@
     "h229_18": {
         "halo_mass": false,
         "stellar_mass": false,
-        "expelled_mlf": false,
+        "expelled_mlf": true,
         "expelled_flux_mlf": {},
         "disk_mlf": true
     },
@@ -186,6 +186,76 @@
         "disk_mlf": true
     },
     "h148_251": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h242_8": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h242_10": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h242_21": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h242_30": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h242_38": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h242_69": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h242_401": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h329_7": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h329_29": {
+        "halo_mass": false,
+        "stellar_mass": false,
+        "expelled_mlf": false,
+        "expelled_flux_mlf": {},
+        "disk_mlf": true
+    },
+    "h329_117": {
         "halo_mass": false,
         "stellar_mass": false,
         "expelled_mlf": false,

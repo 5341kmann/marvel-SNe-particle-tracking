@@ -558,6 +558,29 @@ def halo_mlf_by_tracked(sim, z0halo, snap_num, identify=None):
                 halo_logger.debug(
                     f"Using {sim.value}_{snap_num} at {snap_num} for {sim.value}_{z0halo} "
                 )
+    elif sim in MarvelSim:
+        if sim == MarvelSim.CAPTAINMARVEL:
+            if z0halo == 13:
+                # Special case for Captain Marvel halo 13, 
+                snap_num = '3200'
+                halo_logger.debug(
+                    f"Skipping to snap {snap_num} for {sim.value}_{z0halo} due to known lack of star formation."
+                )
+            if z0halo == 10:
+                # Special case for Captain Marvel halo 10,
+                snap_num = '2304'
+                halo_logger.debug(
+                    f"Skipping to snap {snap_num} for {sim.value}_{z0halo} due to known lack of star formation."
+                )
+            if z0halo == 11:
+                # Special case for Captain Marvel halo 11,
+                snap_num = '0896'
+                halo_logger.debug(
+                    f"Skipping to snap {snap_num} for {sim.value}_{z0halo} due to known lack of star formation."
+                )
+        if sim in [MarvelSim.ELEKTRA, MarvelSim.ROGUE, MarvelSim.STORM]:
+            # special case for Elektra, Rogue, and Storm halos
+            snap_num = '4096'
 
     while not has_formed_stars:
         print(
@@ -589,6 +612,9 @@ def halo_mlf_by_tracked(sim, z0halo, snap_num, identify=None):
             return float("nan")
         else:
             prev_snapnum = snap_numbers[current_snapnum_index + 1]
+            if sim in [MarvelSim.ELEKTRA, MarvelSim.ROGUE, MarvelSim.STORM]:
+                dt = 4096/snap_time
+                delta_T = pynbody.units.Unit(f"{prev_snapnum*dt} Gyr")
             delta_T = snap_time - load_sim(sim, prev_snapnum)[0].properties[
                 "time"
             ].in_units("Gyr")
@@ -607,6 +633,12 @@ def halo_mlf_by_tracked(sim, z0halo, snap_num, identify=None):
         ]
 
         if len(formed_stars) == 0:
+            if sim in [MarvelSim.ELEKTRA, MarvelSim.ROGUE, MarvelSim.STORM]:
+                halo_logger.debug(
+                    f'Cannot find formed stars for {sim.value}_{halo_num} at snap {snap_num}. Stopping due to no accessible previous snapshots.'
+                )
+                print('Cannot find formed stars. Stopping due to no accessible previous snapshots.')
+                return float("nan"), snap_num
             halo_logger.debug(
                 f"No formed stars found for {sim.value}_{halo_num} at snap {snap_num}. Trying previous snapshot."
             )
@@ -838,9 +870,8 @@ def compute_sim_mlfs(
             mlf, mlf_snap = func(sim, z0halo, snap_num)
             print(f"Finished halo {z0halo}\nmlf: {mlf} at snapshot {mlf_snap}")
 
-            # updating the analysis file and recompute settings
+            # updating recompute settings
             recompute_dict[key]["expelled_mlf"] = False
-            save_recompute(recompute_dict)
 
             # appending the MLF and snapnumbers
             mlfs.append(mlf)
@@ -877,15 +908,16 @@ def compute_sim_mlfs(
                     # appending the MLF to the list
                     mlfs.append(df["mlf"].loc[z0halo])
                     mlf_snaps.append(df["snap_num"].loc[z0halo])
+                    recompute_dict[key]["expelled_mlf"] = True
+
                 except KeyError:
                     # if the key is not found, it means the halo has no MLF data
                     logger.error(
                         f"No MLF data found for {key}. Please recompute the MLF."
                     )
-                    recompute_dict[key]["expelled_mlf"] = True
-                    save_recompute(recompute_dict)
                     mlfs.append(float("nan"))
                     mlf_snaps.append(float("nan"))
+                    recompute_dict[key]["expelled_mlf"] = True
 
     # writie data to dictionary
     df = pd.DataFrame({
@@ -897,6 +929,10 @@ def compute_sim_mlfs(
     df.index.name = "halo_id"
     # saving the MLFs to an HDF5 file
     save_with_lock(df, f"Data/analysis/{sim.value}.hdf5", key="expelled_mlf")
+
+    # saving recompute settings
+    save_recompute(recompute_dict)
+
     return df
 
 

@@ -6,5 +6,11 @@
 *.hdf5
 *.lock
 *.png
+!h148.hdf5
+!h229.hdf5 
+!h242.hdf5 
+!h329.hdf5 
+!cptmarvel.hdf5
+!recompute.json
 # *.json
 # END: Ignore log and data files
